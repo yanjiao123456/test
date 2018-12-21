@@ -26,7 +26,7 @@
                 </div>
             </div>
         </transition>
-        <div @click="leftShow=!leftShow" :class="{btn:true,shrinkBtn:!leftShow}">项 目 选 择</div>
+        <div id="treeButton" @click="buttonResie" :class="{btn:true,shrinkBtn:!leftShow}">项 目 选 择</div>
         <div :class="{main:true,mainShow:leftShow}">
             <div class="filtrate-box">
                 <div class="bg"></div>
@@ -392,6 +392,12 @@
                 window.onresize=function(){
                     fuheChart.resize();
                 }
+            },
+            buttonResie(){
+                this.leftShow=!this.leftShow;
+                setTimeout(function(){
+                    window.onresize();
+                },500);
             }
         },
         mounted() {
